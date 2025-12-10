@@ -510,50 +510,65 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        /* Instruction panel */
+        /* Instruction panel - wider and more compact */
         #instructions {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(61, 40, 23, 0.98);
+            background: rgba(10, 10, 10, 0.95);
             color: #f9f6f0;
-            padding: 40px 50px;
+            padding: 30px 40px;
             border-radius: 15px;
-            border: 4px solid #8b7355;
+            border: 4px solid #ffd700;
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            max-width: 600px;
+            max-width: 900px;
+            width: 85%;
             text-align: left;
             z-index: 200;
             display: none;
         }
 
         #instructions.show {
-            display: block;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            grid-template-rows: auto 1fr auto;
         }
 
         #instructions h2 {
             color: #ffd700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
             font-size: 32px;
+            grid-column: 1 / -1;
+        }
+
+        #instructions h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            color: #ffd700;
         }
 
         #instructions ul {
-            margin: 20px 0;
+            margin: 0 0 15px 0;
             padding-left: 20px;
         }
 
         #instructions li {
-            margin: 10px 0;
-            line-height: 1.6;
-            font-size: 16px;
+            margin: 6px 0;
+            line-height: 1.5;
+            font-size: 14px;
         }
 
         #instructions .close-btn {
             display: block;
-            margin: 20px auto 0;
+            margin: 10px auto 0;
             pointer-events: all;
+            grid-column: 1 / -1;
         }
 
         /* Finger tracking indicator */
