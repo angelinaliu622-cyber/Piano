@@ -29,39 +29,18 @@
         }
 
         /* ============================
-           PIANO CONTAINER - POKER TABLE FELT
+           PIANO CONTAINER - DARK BROWN POKER BACKGROUND
            ============================ */
         #piano-container {
             position: relative;
             width: 100vw;
             height: 100vh;
-            background:
-                radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%),
-                linear-gradient(135deg, #0d5e2d 0%, #1a7a3f 50%, #0d5e2d 100%);
+            background: #4a3629;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: inset 0 0 200px rgba(0,0,0,0.4);
         }
 
-        /* Felt texture overlay */
-        #piano-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(255, 255, 255, 0.03) 0px,
-                    transparent 2px,
-                    transparent 4px
-                );
-            opacity: 0.4;
-            pointer-events: none;
-        }
 
         /* ============================
            KEYBOARD LAYOUT - SCATTERED ARTISTIC STYLE
@@ -113,14 +92,11 @@
             pointer-events: none;
         }
 
-        /* Suit cards (black keys) - Ace cards with large suit symbols */
+        /* Suit symbols (black keys) - Large floating poker suit symbols */
         .key.black {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
-            border: 4px solid #d0d0d0;
-            box-shadow:
-                0 15px 40px rgba(0,0,0,0.5),
-                0 6px 18px rgba(0,0,0,0.3),
-                inset 0 1px 2px rgba(255,255,255,0.95);
+            background: transparent;
+            border: none;
+            box-shadow: none;
             z-index: 15;
             display: flex;
             align-items: center;
@@ -227,54 +203,54 @@
             --final-rotation: 7deg;
         }
 
-        /* Scattered positioning for suit cards - standard size */
+        /* Scattered positioning for suit symbols - larger floating symbols */
         .key.black[data-note="C#"] {
             left: 8%;
             top: 25%;
-            width: 90px;
-            height: 220px;
+            width: 120px;
+            height: 180px;
             --final-rotation: 10deg;
         }
         .key.black[data-note="D#"] {
             left: 18%;
             top: 50%;
-            width: 85px;
-            height: 210px;
+            width: 115px;
+            height: 175px;
             --final-rotation: -12deg;
         }
         .key.black[data-note="F#"] {
             left: 38%;
             top: 30%;
-            width: 88px;
-            height: 215px;
+            width: 118px;
+            height: 178px;
             --final-rotation: 8deg;
         }
         .key.black[data-note="G#"] {
             left: 50%;
             top: 55%;
-            width: 92px;
-            height: 205px;
+            width: 122px;
+            height: 172px;
             --final-rotation: -9deg;
         }
         .key.black[data-note="A#"] {
             left: 61%;
             top: 35%;
-            width: 87px;
-            height: 218px;
+            width: 117px;
+            height: 180px;
             --final-rotation: 11deg;
         }
         .key.black[data-note="C#2"] {
             left: 72%;
             top: 58%;
-            width: 90px;
-            height: 220px;
+            width: 120px;
+            height: 180px;
             --final-rotation: -10deg;
         }
         .key.black[data-note="D#2"] {
             left: 83%;
             top: 32%;
-            width: 88px;
-            height: 214px;
+            width: 118px;
+            height: 176px;
             --final-rotation: 9deg;
         }
 
@@ -317,12 +293,18 @@
         .key.black[data-note="D#2"] { animation-delay: 0.75s; --deal-rotation: 19deg; }
 
         /* Card hover effect - lift and tilt */
-        .key:hover {
+        .key.white:hover {
             filter: brightness(1.1);
             transform: translateY(-8px) scale(1.03);
             box-shadow:
                 0 20px 50px rgba(0,0,0,0.5),
                 0 10px 25px rgba(0,0,0,0.35);
+        }
+
+        /* Suit symbol hover effect */
+        .key.black:hover {
+            filter: brightness(1.2) drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+            transform: translateY(-8px) scale(1.08);
         }
 
         /* Preserve individual card rotations on hover with tilt */
@@ -340,21 +322,27 @@
         .key.white[data-note="G2"]:hover { transform: rotate(9deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
         .key.white[data-note="A2"]:hover { transform: rotate(-6deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
         .key.white[data-note="B2"]:hover { transform: rotate(7deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
-        .key.black[data-note="C#"]:hover { transform: rotate(10deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
-        .key.black[data-note="D#"]:hover { transform: rotate(-12deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
-        .key.black[data-note="F#"]:hover { transform: rotate(8deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
-        .key.black[data-note="G#"]:hover { transform: rotate(-9deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
-        .key.black[data-note="A#"]:hover { transform: rotate(11deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
-        .key.black[data-note="C#2"]:hover { transform: rotate(-10deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
-        .key.black[data-note="D#2"]:hover { transform: rotate(9deg) translateY(-8px) scale(1.03) rotateX(5deg) !important; }
+        .key.black[data-note="C#"]:hover { transform: rotate(10deg) translateY(-8px) scale(1.08) !important; }
+        .key.black[data-note="D#"]:hover { transform: rotate(-12deg) translateY(-8px) scale(1.08) !important; }
+        .key.black[data-note="F#"]:hover { transform: rotate(8deg) translateY(-8px) scale(1.08) !important; }
+        .key.black[data-note="G#"]:hover { transform: rotate(-9deg) translateY(-8px) scale(1.08) !important; }
+        .key.black[data-note="A#"]:hover { transform: rotate(11deg) translateY(-8px) scale(1.08) !important; }
+        .key.black[data-note="C#2"]:hover { transform: rotate(-10deg) translateY(-8px) scale(1.08) !important; }
+        .key.black[data-note="D#2"]:hover { transform: rotate(9deg) translateY(-8px) scale(1.08) !important; }
 
         /* Card press animation - bounce and tilt */
-        .key.active {
+        .key.white.active {
             filter: brightness(0.95);
             box-shadow:
                 0 4px 12px rgba(0,0,0,0.4),
                 0 2px 6px rgba(0,0,0,0.3),
                 inset 0 3px 10px rgba(0,0,0,0.15);
+            animation: cardBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* Suit symbol press animation */
+        .key.black.active {
+            filter: brightness(0.8) drop-shadow(0 2px 6px rgba(0,0,0,0.4));
             animation: cardBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
@@ -378,21 +366,26 @@
         .key.white[data-note="G2"].active { transform: rotate(9deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
         .key.white[data-note="A2"].active { transform: rotate(-6deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
         .key.white[data-note="B2"].active { transform: rotate(7deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
-        .key.black[data-note="C#"].active { transform: rotate(10deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
-        .key.black[data-note="D#"].active { transform: rotate(-12deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
-        .key.black[data-note="F#"].active { transform: rotate(8deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
-        .key.black[data-note="G#"].active { transform: rotate(-9deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
-        .key.black[data-note="A#"].active { transform: rotate(11deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
-        .key.black[data-note="C#2"].active { transform: rotate(-10deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
-        .key.black[data-note="D#2"].active { transform: rotate(9deg) translateY(8px) scale(0.97) rotateX(-5deg) !important; }
+        .key.black[data-note="C#"].active { transform: rotate(10deg) translateY(8px) scale(0.92) !important; }
+        .key.black[data-note="D#"].active { transform: rotate(-12deg) translateY(8px) scale(0.92) !important; }
+        .key.black[data-note="F#"].active { transform: rotate(8deg) translateY(8px) scale(0.92) !important; }
+        .key.black[data-note="G#"].active { transform: rotate(-9deg) translateY(8px) scale(0.92) !important; }
+        .key.black[data-note="A#"].active { transform: rotate(11deg) translateY(8px) scale(0.92) !important; }
+        .key.black[data-note="C#2"].active { transform: rotate(-10deg) translateY(8px) scale(0.92) !important; }
+        .key.black[data-note="D#2"].active { transform: rotate(9deg) translateY(8px) scale(0.92) !important; }
 
         /* Glow effect when triggered by hand */
-        .key.hand-triggered {
+        .key.white.hand-triggered {
             box-shadow:
                 0 0 50px rgba(255, 215, 0, 0.9),
                 0 0 30px rgba(255, 165, 0, 0.7),
                 0 15px 40px rgba(0,0,0,0.5),
                 inset 0 0 25px rgba(255, 215, 0, 0.4);
+            animation: cardGlow 0.5s ease-out;
+        }
+
+        .key.black.hand-triggered {
+            filter: brightness(1.5) drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
             animation: cardGlow 0.5s ease-out;
         }
 
@@ -416,11 +409,11 @@
             letter-spacing: 1px;
         }
 
-        /* Large suit symbols for suit cards (black keys) */
+        /* Large suit symbols for black keys - floating symbols */
         .key.black .key-label {
-            font-size: 120px;
+            font-size: 180px;
             font-weight: normal;
-            text-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            text-shadow: 0 12px 24px rgba(0,0,0,0.5);
             line-height: 1;
         }
 
@@ -433,30 +426,6 @@
         .key.black[data-note="C#2"] .key-label { color: #dc143c; } /* Hearts - Red */
         .key.black[data-note="D#2"] .key-label { color: #1a1a1a; } /* Clubs - Black */
 
-        /* Ace indicator in corner of suit cards */
-        .key.black::after {
-            content: 'A';
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            font-size: 28px;
-            font-weight: bold;
-            font-family: 'Georgia', serif;
-            pointer-events: none;
-        }
-
-        .key.black[data-note="C#"]::after,
-        .key.black[data-note="F#"]::after,
-        .key.black[data-note="A#"]::after,
-        .key.black[data-note="C#2"]::after {
-            color: #dc143c;
-        }
-
-        .key.black[data-note="D#"]::after,
-        .key.black[data-note="G#"]::after,
-        .key.black[data-note="D#2"]::after {
-            color: #1a1a1a;
-        }
 
         /* ============================
            WEBCAM & OVERLAY
